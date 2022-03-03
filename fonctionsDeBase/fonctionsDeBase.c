@@ -28,7 +28,7 @@ int *tableau_frequence(char *texte)
     int *freq = malloc(sizeof(int) * 26);
     for (int j = 0; j < 26; j++)
     {
-        freq[j]=0;
+        freq[j] = 0;
     }
     char cara;
     for (int i = 0; i < taille(texte); i++)
@@ -45,4 +45,25 @@ int *tableau_frequence(char *texte)
         }
     }
     return freq;
+}
+
+char *lecture(char *nomFichier)
+{
+    FILE *fichier = fopen(nomFichier, "r");
+    if(fichier == NULL){
+        printf("Erruer: fichier non accessible");
+    }
+    struct stat st;
+    int code = stat(nomFichier, &st);
+    if(code == -1){
+        printf("Erreur: stat n'a pas pu être lancé (êtes vous sur un système UNIX?)");
+    }
+    char *buffr = malloc(st.st_size);
+    code = fread(buffr, sizeof(char), st.st_size / sizeof(char), fichier);
+    if(code == 0){
+        printf("Erreur: fichier vide ou lecture impossible\n");
+        exit(EXIT_FAILURE);
+    }
+    fclose(fichier);
+    return buffr;
 }
