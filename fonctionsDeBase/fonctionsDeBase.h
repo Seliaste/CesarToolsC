@@ -6,6 +6,8 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <sys/stat.h>
 
 /**
  * @brief Renvoie la taille de texte
