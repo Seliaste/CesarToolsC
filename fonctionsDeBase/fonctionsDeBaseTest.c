@@ -14,6 +14,5 @@ int main(int argc, char const *argv[])
     printf("taille de bjr = %d\n",taille("bjr"));
     printf("a est %d, Z est %d, é est %d\n",estChiffrable('a'),estChiffrable('Z'),estChiffrable('-'));
     printTab(tableau_frequence("JE GROGNE GRRRRRRRRRrrrrrR"));
-
     return 0;
 }

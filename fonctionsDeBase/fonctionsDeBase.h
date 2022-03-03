@@ -1,11 +1,11 @@
-#include <stdlib.h>
-
 /**
  * @file fonctionsDeBase.h
  * @author Aéna ARIA (aena.aria2@etu.univ-lorraine.fr)
  * @brief Fonctions de base pour le TP3
  * @date 2022-02-28
  */
+
+#include <stdlib.h>
 
 /**
  * @brief Renvoie la taille de texte
