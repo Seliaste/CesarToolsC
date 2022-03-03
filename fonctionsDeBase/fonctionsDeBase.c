@@ -51,12 +51,14 @@ char *lecture(char *nomFichier)
 {
     FILE *fichier = fopen(nomFichier, "r");
     if(fichier == NULL){
-        printf("Erruer: fichier non accessible");
+        printf("Erreur: fichier non accessible");
+        exit(EXIT_FAILURE);
     }
     struct stat st;
     int code = stat(nomFichier, &st);
     if(code == -1){
         printf("Erreur: stat n'a pas pu être lancé (êtes vous sur un système UNIX?)");
+        exit(EXIT_FAILURE);
     }
     char *buffr = malloc(st.st_size);
     code = fread(buffr, sizeof(char), st.st_size / sizeof(char), fichier);
