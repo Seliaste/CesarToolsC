@@ -57,7 +57,7 @@ char *lecture(char *nomFichier)
     struct stat st;
     int code = stat(nomFichier, &st);
     if(code == -1){
-        fprintf(stderr,"Erreur: stat n'a pas pu être lancé (êtes vous sur un système UNIX?)\n");
+        fprintf(stderr,"Erreur: stat n'a pas pu être lancé (êtes vous bien sur un système UNIX?)\n");
         exit(EXIT_FAILURE);
     }
     char *buffr = malloc(st.st_size);
