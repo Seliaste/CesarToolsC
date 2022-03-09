@@ -56,15 +56,15 @@ char *lecture(char *nomFichier)
         exit(EXIT_FAILURE);
     }
     struct stat st;
-    int code = stat(nomFichier, &st);   // récupération de la taille du fichier
+    int code = stat(nomFichier, &st); // récupération de la taille du fichier
     if (code == -1)
     {
         fprintf(stderr, "Erreur: stat n'a pas pu être lancé (êtes vous bien sur un système UNIX?)\n");
         exit(EXIT_FAILURE);
     }
-    char *buffr = malloc(st.st_size);   // malloc égal à la taille du fichier
-    code = fread(buffr, sizeof(char), st.st_size / sizeof(char), fichier);  // on lit l'équivalent de la taille en char
-    if (code == 0)  // si on a rien récupéré = fonctionnement anormal
+    char *buffr = malloc(st.st_size);                                      // malloc égal à la taille du fichier
+    code = fread(buffr, sizeof(char), st.st_size / sizeof(char), fichier); // on lit l'équivalent de la taille en char
+    if (code == 0)                                                         // si on a rien récupéré = fonctionnement anormal
     {
         fprintf(stderr, "Erreur: fichier vide ou lecture impossible\n");
         exit(EXIT_FAILURE);
