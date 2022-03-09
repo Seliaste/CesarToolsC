@@ -8,7 +8,7 @@ void testVigener()
     printf("u + f = %c\n", vigener_char('u', 'e', false));
     printf("u + f = %c\n", vigener_char('u', 'f', false));
     printf("Bonjour Madame + abc = %s\n", chiffrer_vigener("Bonjour Madame", "abc"));
-    printf("Cqqkqxs Pbfdng - abc = %s\n", dechiffrer_vigener("Cqqkqxs Pbfdng", "abc"));
+    printf("Aitcb - h = %s\n", dechiffrer_vigener("Aitcb", "h"));
 }
 
 int main(int argc, char const *argv[])
