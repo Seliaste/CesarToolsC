@@ -27,12 +27,23 @@ char *dechiffrer_vigener(char *message, char *clef)
 char vigener_char(char cara, char clef, bool dechiffrer)
 {
     int ajustement = dechiffrer ? -(clef - 96) : (clef - 96); // si on déchiffre, on retire
+    int indice;
     switch (estChiffrable(cara))
     {
     case 1:
-        return ((cara - 97 + ajustement) % 26) + 97;
+        indice = (cara - 97 + ajustement) % 26;
+        if (indice < 0)
+        {
+            indice += 26;
+        }
+        return indice + 97;
     case 2:
-        return ((cara - 65 + ajustement) % 26) + 65;
+        indice = (cara - 65 + ajustement) % 26;
+        if (indice < 0)
+        {
+            indice += 26;
+        }
+        return indice + 65;
     default:
         return cara;
     }

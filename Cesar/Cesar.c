@@ -1,43 +1,83 @@
-#include <stdio.h>
-#include <stdlib.h>
-//#include "fonctionsDeBase.h"
+#include "Cesar.h"
 
-char* chiffrementCesar(char* message, char clef){
-    int cle = (int)clef;
-    char* message_code;
-    printf("%c",cle);
-    if (65>=cle && cle<=90){
-        cle = cle-64;
-        char* message_code = malloc(sizeof(message));
-        while (message[i]!='\0'){
-        if ((char)((int)message[i]+cle)){
-                message_code[i]=((char)((int)message[i]+cle))%64;
-            }
-            else{
-            message_code[i]=(char)((int)message[i]+cle);
-            }
-        ++i;
+char *chiffrementCesar(char *message, char clef)
+{
+    switch (estChiffrable(clef))
+    {
+    case 1:
+        clef = clef - 96;
+        break;
+    case 2:
+        clef = clef - 64;
+        break;
+    default:
+        fprintf(stderr, "Erreur: Clef incorrecte\n");
+        exit(EXIT_FAILURE);
     }
-    }
-    if (cle>=97 && cle<=122){
-        cle = cle-96;
-        char* message_code = malloc(sizeof(message));
-        while (message[i]!='\0'){
-            if ((char)((int)message[i]+cle)){
-                message_code[i]=((char)((int)message[i]+cle))%96;
-            }
-            else{
-            message_code[i]=(char)((int)message[i]+cle);
-            }
-        ++i;
-    }
-    }
-    else{
-        return "Erreur de clé";
-        
+
+    char *message_code = malloc(taille(message) * sizeof(char));
+    for (int i = 0; i < taille(message); i++)
+    {
+        char cara = message[i];
+        switch (estChiffrable(cara))
+        {
+        case 1:
+            message_code[i] = (cara - 97 + clef) % 26 + 97;
+            break;
+        case 2:
+            message_code[i] = (cara - 65 + clef) % 26 + 65;
+            break;
+        default:
+            message_code[i] = cara;
+            break;
+        }
     }
     return message_code;
 }
-int main(int argc,char* argv[]){
-printf("%s",chiffrementCesar("ABC",'F'));
+
+char *dechiffrementCesar(char *message, char clef)
+{
+    int ajustement;
+    switch (estChiffrable(clef))
+    {
+    case 1:
+        ajustement = -clef + 96;
+        break;
+    case 2:
+        ajustement = -clef + 64;
+        break;
+    default:
+        fprintf(stderr, "Erreur: Clef incorrecte\n");
+        exit(EXIT_FAILURE);
+    }
+
+    char *message_code = malloc(taille(message) * sizeof(char));
+    for (int i = 0; i < taille(message); i++)
+    {
+        int cara = message[i];
+        int indice;
+        switch (estChiffrable(cara))
+        {
+        case 1:
+            indice = (cara - 97 + ajustement) % 26;
+            if (indice < 0)
+            {
+                indice += 26;
+            }
+            message_code[i] = indice + 97;
+            break;
+        case 2:
+            indice = (cara - 65 + ajustement) % 26;
+            if (indice < 0)
+            {
+                indice += 26;
+            }
+            message_code[i] = indice + 65;
+            break;
+        default:
+            message_code[i] = cara;
+            break;
+        }
+    }
+    return message_code;
 }
