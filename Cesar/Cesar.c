@@ -15,7 +15,7 @@ char *chiffrementCesar(char *message, char clef)
         exit(EXIT_FAILURE);
     }
 
-    char *message_code = malloc(taille(message) * sizeof(char));
+    char *message_code = calloc(sizeof(char),taille(message)+1);
     for (int i = 0; i < taille(message); i++)
     {
         char cara = message[i];
@@ -51,7 +51,7 @@ char *dechiffrementCesar(char *message, char clef)
         exit(EXIT_FAILURE);
     }
 
-    char *message_code = malloc(taille(message) * sizeof(char));
+    char *message_code = calloc(sizeof(char),taille(message)+1);
     for (int i = 0; i < taille(message); i++)
     {
         int cara = message[i];
