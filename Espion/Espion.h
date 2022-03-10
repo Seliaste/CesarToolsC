@@ -10,3 +10,12 @@
  * @return char* 
  */
 char* casser_cesar(char* texte);
+
+/**
+ * @brief essaie de casser un texte en français encodé en vigénère
+ * 
+ * @param texte 
+ * @param tailleClef 
+ * @return char* 
+ */
+char* casser_vigenere_avec_clef(char* texte, int tailleClef);
