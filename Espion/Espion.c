@@ -17,6 +17,7 @@ char *casser_cesar(char *texte)
     {
         max_char += 26;
     }
+    free(tab);
     return dechiffrementCesar(texte, max_char + 92);
 }
 
@@ -37,6 +38,7 @@ char *casser_vigenere_avec_clef(char *texte, int tailleClef)
             res[i + j * 3] = decodedSubString[j];
         }
         free(subString);
+        free(decodedSubString);
     }
     return res;
 }
