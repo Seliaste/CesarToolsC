@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "fonctionsDeBase/fonctionsDeBase.c"
-#include "Espion/Espion.c"
-#include "Cesar/Cesar.c"
-#include "Vigenere/Vigenere.c"
+#include "fonctionsDeBase/fonctionsDeBase.h"
+#include "Espion/Espion.h"
+#include "Cesar/Cesar.h"
+#include "Vigenere/Vigenere.h"
 int main(int argc, char *argv[])
 {
     if (argc <= 1)
