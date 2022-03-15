@@ -1,3 +1,10 @@
+/**
+ * @file Espion.h
+ * @author Aéna Aria (aena.aria2@etu.univ-lorraine.fr)
+ * @brief Module espion pour casser les encodages
+ * @date 2022-03-15
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../fonctionsDeBase/fonctionsDeBase.h"
