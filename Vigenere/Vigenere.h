@@ -1,7 +1,7 @@
 /**
  * @file Vigenere.h
  * @author Aéna ARIA (aena.aria2@etu.univ-lorraine.fr)
- * @brief Header du module pour chiffrer en code vigénere
+ * @brief Module pour chiffrer en code vigénere
  * @date 2022-03-09
  */
 
