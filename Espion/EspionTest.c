@@ -2,10 +2,12 @@
 
 void testEspion()
 {
-    printf("Iwtivpyixxi = %s\n", casser_cesar("Iwtivpyixxi"));
+    char * petit = casser_cesar("Iwtivpyixxi");
+    printf("Iwtivpyixxi = %s\n", petit);
     char *texte_long = lecture("exemple2_chiffre_cesar.txt");
     char *decoded = casser_cesar(texte_long);
     printf("%s\n", decoded);
+    free(petit);
     free(decoded);
     free(texte_long);
 }
