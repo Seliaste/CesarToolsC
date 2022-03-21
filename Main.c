@@ -1,4 +1,9 @@
-#include <stdio.h>
+/**
+ * @file Main.c
+ * @author WIECZOREK Thomas
+ * @brief main avec définition des commandes
+ * @date 2022-03-10
+ */
 #include <stdlib.h>
 #include <string.h>
 #include "fonctionsDeBase/fonctionsDeBase.h"

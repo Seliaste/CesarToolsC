@@ -9,7 +9,7 @@
 #include "../fonctionsDeBase/fonctionsDeBase.h"
 
 /**
- * @brief Chiffre message avec clef décalage
+ * @brief Chiffre message avec une clef de décalage
  * 
  * @param message 
  * @param clef 
@@ -18,7 +18,7 @@
 char *chiffrementCesar(char *message, char clef);
 
 /**
- * @brief Dechiffre message avec clef décalage
+ * @brief Dechiffre message avec une clef de décalage
  * 
  * @param message 
  * @param clef 
